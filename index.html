@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        body{
+            height:100vh;
+            background:linear-gradient(135deg, black, darkred);
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            font-family:Arial, sans-serif;
+            color:white;
+            overflow:hidden;
+        }
+
+        h1{
+            font-size:60px;
+            letter-spacing:5px;
+            text-shadow:0 0 25px red;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>WELCOME</h1>
+
+    <audio id="bgAudio" autoplay loop muted>
+        <source src="preweb1.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        var audio = document.getElementById("bgAudio");
+
+        window.addEventListener("load", function(){
+            setTimeout(function(){
+                audio.muted = false;
+                audio.volume = 1.0;
+                audio.play().catch(function(){});
+            }, 500);
+        });
+
+        // Enable sound on first interaction silently
+        document.addEventListener("click", function(){
+            audio.muted = false;
+            audio.volume = 1.0;
+            audio.play();
+        }, { once: true });
+    </script>
+
+</body>
+</html>
